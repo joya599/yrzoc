@@ -9,9 +9,9 @@
 # Website Info
 info:
   # Site Favicon
-  favicon: assets/images/Hexo-Theme-MEOW.ico
+  favicon: assets/images/YRZ.ico
   # Site Logo
-  logo: assets/images/Hexo-Theme-MEOW.png
+  logo: assets/images/YRZ.png
   # Author Avatar
   avatar: 
   # Datetime of when this website was built
@@ -78,8 +78,8 @@ search:
 banner:
   # Background image of banner under light/dark mode
   image:
-    light: assets/images/wallhaven-5yl597.webp
-    dark: assets/images/wallhaven-e7zogk.webp
+    light: assets/images/YRZ_JG_Wall.webp
+    dark: assets/images/YRZ_JG_Wall_Night.webp
     is_fixed: true # Whether the image is fixed as background or scrollable with banner at homepage, true or false
     position: center top # horizontal(left/center/right) vertical(top/center/bottom)
     repeat: no-repeat # repeat/repeat-x/repeat-y/no-repeat
