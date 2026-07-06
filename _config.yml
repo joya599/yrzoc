@@ -98,6 +98,13 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: meow
 
+
+search:
+  path: search.json
+  field: post
+  content: true
+  template: ./search.xml
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
@@ -105,3 +112,4 @@ deploy:
   repo: https://github.com/joya599/yrzoc.git
   branch: main
   token: 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
+  
