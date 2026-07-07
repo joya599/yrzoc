@@ -373,7 +373,7 @@ music:
     api: https://api.injahow.cn/meting/ # Custom Meting api url
     server: netease # Music platform: netease, tencent, kugou, xiami, baidu
     type: playlist # Audio type: song, playlist, album, search, artist
-    id: 18129020185 # Audio source: song id / playlist id / album id / search keyword / artist
+    id: 18129126749 # Audio source: song id / playlist id / album id / search keyword / artist
 
 # CDN Configuration
 cdn:
