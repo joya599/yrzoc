@@ -364,7 +364,7 @@ album:
 # Music Player Module
 music:
   enable: true # Whether to enable global music player
-  autoplay: false # Whether to play music automatically
+  autoplay: true # Whether to play music automatically
   loop: all # How to loop music, all or one or none
   order: list # Play Music in which order, list or random
   volume: 0.7 # Default volume, 0-1
@@ -373,7 +373,7 @@ music:
     api: https://api.injahow.cn/meting/ # Custom Meting api url
     server: netease # Music platform: netease, tencent, kugou, xiami, baidu
     type: playlist # Audio type: song, playlist, album, search, artist
-    id: 18129126749 # Audio source: song id / playlist id / album id / search keyword / artist
+    id: 18129208401 # Audio source: song id / playlist id / album id / search keyword / artist
 
 # CDN Configuration
 cdn:
