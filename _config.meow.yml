@@ -343,11 +343,11 @@ comment:
     - https://registry.npmmirror.com/@waline/emojis/1.3.0/files/tw-emoji
     # https://waline.js.org/guide/features/emoji.html
     reaction: 
-    - https://unpkg.com/@waline/emojis@1.1.0/bmoji/bmoji_call.png
-    - https://unpkg.com/@waline/emojis@1.1.0/bmoji/bmoji_give_love.png
-    - https://unpkg.com/@waline/emojis@1.1.0/bmoji/bmoji_palming.png
-    - https://unpkg.com/@waline/emojis@1.1.0/bmoji/bmoji_ah.png
-    - https://unpkg.com/@waline/emojis@1.1.0/bmoji/bmoji_wail.png
+    - https://a1.ax1x.com/2026/07/09/FVpUX.jpg
+    - https://a1.ax1x.com/2026/07/09/FVq0e.jpg
+    - https://a1.ax1x.com/2026/07/09/FVtIh.jpg
+    - https://a1.ax1x.com/2026/07/09/FVeQC.jpg
+  
     # https://waline.js.org/guide/features/reaction.html
     option:
         dark: auto
@@ -368,7 +368,7 @@ music:
   loop: all # How to loop music, all or one or none
   order: list # Play Music in which order, list or random
   volume: 0.7 # Default volume, 0-1
-  lyric: true # Whether to display lyric
+  lyric: false # Whether to display lyric
   meting: # Meting api config
     api: https://api.injahow.cn/meting/ # Custom Meting api url
     server: netease # Music platform: netease, tencent, kugou, xiami, baidu
