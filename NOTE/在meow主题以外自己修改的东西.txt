@@ -1,0 +1,7 @@
+这两个文件被修改过，有了barba.js做SPA，来让音乐播放器持续播放
+"C:\Users\JiayueLai\hexo-blog\themes\meow\layout\layout.pug"
+"C:\Users\JiayueLai\hexo-blog\themes\meow\layout\components\scripts.pug"
+
+这个文件被修改过来让评论区的反应图片变大
+"C:\Users\JiayueLai\hexo-blog\themes\meow\source\css\style.styl"
+

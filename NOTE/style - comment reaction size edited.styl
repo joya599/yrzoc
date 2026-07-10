@@ -1,0 +1,34 @@
+@import 'common/variables'
+// @import 'common/swup'
+@import 'common/animation'
+@import 'common/basic'
+@import 'common/markdown'
+@import 'common/images'
+
+@import 'layout/page'
+@import 'layout/homepage'
+@import 'layout/archives'
+@import 'layout/categories'
+@import 'layout/tags'
+@import 'layout/post'
+@import 'layout/_partial/*'
+@import 'layout/_partial/post/*'
+
+@import 'tags/*'
+
+if hexo-config('comment.enable')
+  @import 'common/comment/comment'
+  if hexo-config('comment.type') == 'waline'
+    @import 'common/comment/waline'
+	
+/* 强行突破限制，把表态图标放大 */
+.wl-reaction-img {
+  width: 84px !important;
+  height: 112px !important;
+}
+@media(max-width: 580px) {
+  .wl-reaction-img {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
