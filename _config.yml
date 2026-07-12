@@ -113,3 +113,14 @@ deploy:
   branch: main
   token: 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
   
+
+#Markdown-it
+markdown:
+  plugins:
+    - markdown-it-mark # 高亮==
+    - markdown-it-attrs # {.class}
+    - markdown-it-abbr # 注释*[]
+    - markdown-it-ins # 下划线++
+    - markdown-it-footnote # 脚注[^]
+    - markdown-it-emoji
+  

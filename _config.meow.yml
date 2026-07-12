@@ -13,7 +13,7 @@ info:
   # Site Logo
   logo: assets/images/YRZ.png
   # Author Avatar
-  avatar: 
+  avatar: assets/images/profile.png
   # Datetime of when this website was built
   start_date: 2026-07-03 14:33:20 # Format should be as same as date_format and time_format of root config
 
@@ -21,7 +21,7 @@ info:
 color:
   # Light Mode
   light:
-    theme_color: '#FFB347'
+    theme_color: '#7cb85c'
   # Dark Mode
   dark:
     theme_color: '#88C0ED'
