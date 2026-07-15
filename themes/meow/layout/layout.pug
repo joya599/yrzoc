@@ -19,8 +19,8 @@ html(lang= config.language)
         != partial('components/search')
       
       //- 注意这里的缩进：必须在 main 或者 body 的正确层级下
-      if theme.music.enable
-        #music-player(data-turbo-permanent)
+    if theme.music.enable
+      #music-player(data-turbo-permanent)
 
     footer
       != partial('components/footer')

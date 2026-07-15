@@ -1,6 +1,6 @@
 .scripts
   script.
-    const GLOBALCONFIG = {
+    window.GLOBALCONFIG = {
       root: '#{config.root}',
       toolbar: #{theme.toolbar.enable},
       lazyload_src: '#{url_for(theme.image.loding_image)}',
@@ -34,6 +34,7 @@
     }
     document.body.setAttribute('data-mode', localStorage.getItem('color-mode'));
   
+  script(data-turbo-eval="false")
   != js('js/theme/tools/utils')
 
   if is_home() && theme.banner.subtitle.enable && theme.banner.subtitle.effect && theme.banner.subtitle.text.length > 0
@@ -75,7 +76,11 @@
       != js('js/plugins/dist/snackbar.min')
 
   if theme.search.enable
-    != importJS('hexo-generator-searchdb','1.5.0','dist/search.js')
+  script(data-turbo-eval="false").
+    window.searchLoaded = false;
+	
+  != js('https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js')
+  
   
   if page.type == "friends"
     != js('friends/friends')

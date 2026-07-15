@@ -1,13 +1,23 @@
-const STATE_PLAINTEXT = Symbol('plaintext');
-const STATE_HTML = Symbol('html');
-const STATE_COMMENT = Symbol('comment');
+window.SEARCH_STATE =
+window.SEARCH_STATE || {
+
+  STATE_PLAINTEXT:
+    Symbol('plaintext'),
+
+  STATE_HTML:
+    Symbol('html'),
+
+  STATE_COMMENT:
+    Symbol('comment')
+
+};
 
 function striptags(html = '') {
   // if not string, then safely return an empty string
   if (typeof html !== 'string' && !(html instanceof String)) {
     return '';
   }
-  let state = STATE_PLAINTEXT;
+  let state = SEARCH_STATE.STATE_PLAINTEXT;
   let tag_buffer = '';
   let depth = 0;
   let in_quote_char = '';
@@ -15,10 +25,10 @@ function striptags(html = '') {
   const { length } = html;
   for (let idx = 0; idx < length; idx++) {
     const char = html[idx];
-    if (state === STATE_PLAINTEXT) {
+    if (state === SEARCH_STATE.STATE_PLAINTEXT) {
       switch (char) {
         case '<':
-          state = STATE_HTML;
+          state = SEARCH_STATE.STATE_HTML;
           tag_buffer = tag_buffer + char;
           break;
         default:
@@ -26,7 +36,7 @@ function striptags(html = '') {
           break;
       }
     }
-    else if (state === STATE_HTML) {
+    else if (state === SEARCH_STATE.STATE_HTML) {
       switch (char) {
         case '<':
           // ignore '<' if inside a quote
@@ -47,7 +57,7 @@ function striptags(html = '') {
           }
           // this is closing the tag in tag_buffer
           in_quote_char = '';
-          state = STATE_PLAINTEXT;
+          state = SEARCH_STATE.STATE_PLAINTEXT;
           // tag_buffer += '>';
           tag_buffer = '';
           break;
@@ -64,14 +74,14 @@ function striptags(html = '') {
           break;
         case '-':
           if (tag_buffer === '<!-') {
-            state = STATE_COMMENT;
+            state = SEARCH_STATE.STATE_COMMENT;
           }
           tag_buffer = tag_buffer + char;
           break;
         case ' ':
         case '\n':
           if (tag_buffer === '<') {
-            state = STATE_PLAINTEXT;
+            state = SEARCH_STATE.STATE_PLAINTEXT;
             output += '< ';
             tag_buffer = '';
             break;
@@ -83,12 +93,12 @@ function striptags(html = '') {
           break;
       }
     }
-    else if (state === STATE_COMMENT) {
+    else if (state === SEARCH_STATE.STATE_COMMENT) {
       switch (char) {
         case '>':
           if (tag_buffer.slice(-2) === '--') {
             // close the comment
-            state = STATE_PLAINTEXT;
+            state = SEARCH_STATE.STATE_PLAINTEXT;
           }
           tag_buffer = '';
           break;
