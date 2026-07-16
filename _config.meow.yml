@@ -55,7 +55,10 @@ menu:
      archives: /archives || uc-archive
      categories: /categories || uc-category
      tags: /tags || uc-tag
-   about: /about || uc-about
+   about || uc-about:
+    世界: /world || uc-site
+    作者: /author || uc-face
+   相册: /gallery || uc-picture
 
 # Navigation Bar Configuration
 menu_options:
@@ -134,9 +137,9 @@ sidebar:
         # github: brand-github || https://github.com/chanwj
   # Show announcement card, false or announcement text, markdown available
   announcement: 
-    嗨嗨! 
+    嗨嗨! 🍚
     
-    这里是薏仁粥的同人存档处和OC观测站！欢迎和我一起玩！🍚
+    这里是薏仁粥的同人存档处和OC观测站！欢迎和我一起玩！
   # Links card
   links:
     enable: false # Whether to show additional links
@@ -172,7 +175,7 @@ home:
 
 # Archive Customization
 archive:
-  icon: assets/images/Hexo-Theme-MEOW.png # Show icon when no cover, icon link or stay blank
+  icon: assets/images/YRZ.png # Show icon when no cover, icon link or stay blank
   thumbnail: true # Whether to show cover or photo
 
 # Category Customization
@@ -308,15 +311,15 @@ friends:
 fiction:
   # Customize the display values of fiction attributes
   attribute:
-    card_title: Fiction Information # Fiction Information
-    addition_title: Notice # Notice
-    type: Type # Type
-    fandom: Fandom # Fandom
-    relationship: Relationship # Relationship
-    character: Character # Character
+    card_title: 作品信息 # Fiction Information
+    addition_title: 注意 # Notice
+    type: 类型 # Type
+    fandom: 原作 # Fandom
+    relationship: 关系 # Relationship
+    character: 角色 # Character
     rating: Rating # Rating
     warning: Warning # Warning
-    status: Status # Status
+    status: 状态 # Status
   # Customize the display values of fiction rating
   rating:
     0: General Audiences # General Audiences
@@ -325,7 +328,7 @@ fiction:
     3: Explicit # Explicit
   # Customize the display values of fiction statis
   status:
-    Y: COMPLETE # COMPLETE
+    Y: 完结 # COMPLETE
     N: TO BE CONTINUED... # TO BE CONTINUED...
 
 # Comment Module
