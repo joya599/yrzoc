@@ -317,7 +317,7 @@ fiction:
     fandom: 原作 # Fandom
     relationship: 关系 # Relationship
     character: 角色 # Character
-    rating: Rating # Rating
+    rating: 分级 # Rating
     warning: Warning # Warning
     status: 状态 # Status
   # Customize the display values of fiction rating
@@ -329,7 +329,7 @@ fiction:
   # Customize the display values of fiction statis
   status:
     Y: 完结 # COMPLETE
-    N: TO BE CONTINUED... # TO BE CONTINUED...
+    N: 未完待续... # TO BE CONTINUED...
 
 # Comment Module
 comment:
