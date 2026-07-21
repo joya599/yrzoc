@@ -4673,7 +4673,7 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
 .arrow-carousel {
   position: relative;
   width: 100%;
-  max-width: 100% !important;
+  max-width: 80% !important;
   margin: 12px auto !important;
   overflow: hidden;
   border-radius: 12px;
