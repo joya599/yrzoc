@@ -10,6 +10,8 @@
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   border: 1px solid rgba(0,0,0,0.06);
   box-sizing: border-box;
+/* 取消 height 写死，交给内部 slide-item 自然撑开 */
+  height: auto !important;
 }
 .arrow-carousel input[type="radio"] {
   display: none;
@@ -17,8 +19,10 @@
 .carousel-slides {
   display: flex;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+/* 确保轨道高度由当前展示的项目决定 */
+  align-items: center;
 }
-/* 核心：为横竖图自适应提供流畅的流体高度容器 */
+/* 基础容器 */
 .slide-item {
   flex: 1;
   position: relative;
@@ -26,13 +30,11 @@
   justify-content: center;
   align-items: center;
   background: #121212;
-/* 竖图时自动撑起较高空间，横图时自动收缩，兼顾两者比例 */
-  min-height: 320px;
-  max-height: 520px;
-  aspect-ratio: 3/4; /* 默认采用微偏高的相册比例，完美贴合竖图展示 */
   overflow: hidden;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
 }
-/* 背景虚化层：让横竖图两边的留白自动充满同源的高斯模糊色彩 */
+/* 背景虚化层 */
 .slide-item::before {
   content: "";
   position: absolute;
@@ -47,13 +49,38 @@
   transform: scale(1.1);
   z-index: 1;
 }
+/* 关键修复：无论横图/竖图/加载中，图片本体必须始终盖在虚化背景层之上。
+   之前这条规则只写在 .portrait-box img / .landscape-box img 里，
+   而 JS 从未给 .slide-item 加上这两个 class，导致图片一直是未定位元素，
+   被绝对定位的 ::before 虚化层盖住，看起来像“被虚化了”。 */
 .slide-item img {
   position: relative;
   z-index: 2;
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* 保证横竖图绝对不拉伸变形、完整显示 */
   display: block;
+}
+/* 📦 1. 初始/加载中默认方框 (约 3:4 比例) */
+.slide-item.loading-box {
+  height: 420px;
+}
+/* 📦 2. 竖图专属方框：高度拉高到 520px */
+.slide-item.portrait-box {
+  height: 520px;
+}
+.slide-item.portrait-box img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+/* 📦 3. 横图专属方框：高度压扁到 300px，杜绝巨大黑边 */
+.slide-item.landscape-box {
+  height: 300px;
+}
+.slide-item.landscape-box img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
 }
 /* 动态偏移计算（支持最多5张） */
 .arrow-carousel input[type="radio"]:nth-of-type(1):checked ~ .carousel-slides {
@@ -137,8 +164,10 @@
     border-radius: 8px;
     margin: 10px 0 !important;
   }
-  .slide-item {
-    min-height: 250px;
-    max-height: 400px;
+  .slide-item.portrait-box {
+    height: 400px; /* 手机端竖图适度缩矮，防止占满一整屏 */
+  }
+  .slide-item.landscape-box {
+    height: 220px;
   }
 }
