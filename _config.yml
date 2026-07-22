@@ -123,6 +123,7 @@ markdown:
     - markdown-it-ins # 下划线++
     - markdown-it-footnote # 脚注[^]
     - markdown-it-emoji
+    - markdown-it-imsize
   
 #加密功能
 encrypt:

@@ -63,6 +63,8 @@ status:
 郭天和燕从安是情侣关系
 关系中是更主动但更隐忍的一方。
 
-
-
-![苍丐](https://cdn.jsdelivr.net/gh/joya599/yrzoc-photo@main/%E8%8B%8D%E4%B8%90%E6%8D%A7%E8%84%B8.jpeg)
+{% slider
+    https://cdn.jsdelivr.net/gh/joya599/yrzoc-photo@main/%E8%8B%8D%E4%B8%90%E6%8D%A7%E8%84%B8.jpeg;
+  小狗咬人  https://cdn.jsdelivr.net/gh/joya599/yrzoc-photo@main/%E8%8B%8D%E4%B8%90%E4%BA%B2%E4%BA%B2.jpeg;
+   https://cdn.jsdelivr.net/gh/joya599/yrzoc-photo@main/%E4%B8%90%E5%A7%90%E6%A1%83%E8%8A%B1.jpeg;
+%}
