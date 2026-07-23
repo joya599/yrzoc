@@ -4815,7 +4815,10 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
 .character-card table {
   width: 100%;
   table-layout: fixed;
+  display: table !important; /* 防止主题把表格变成 block 导致右侧挤压 */
+  border: none !important; /* 阻断主题自带的表格外边框 */
 }
+.character-card tr,
 .character-card td,
 .character-card th {
   padding: 8px 20px;
@@ -4823,6 +4826,8 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
   white-space: normal;
   vertical-align: top;
   line-height: 1.5;
+  border: none !important; /* 阻断主题自带的单元格网格线 */
+  background: transparent !important; /* 阻断主题自带的隔行变色背景 */
 }
 .character-card p {
   margin: 8px 0;
