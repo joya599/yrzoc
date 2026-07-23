@@ -1,3 +1,4 @@
+/* ================= 全局 & 电脑端布局 (完全保留原样) ================= */
 /* 自动加粗基础属性表格的单数列（第1格、第3格） */
 .character-basic table td:nth-child(odd) {
   font-weight: bold;
@@ -10,6 +11,7 @@
   border: 1px solid rgba(120,120,120,0.25);
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-sizing: border-box;
 }
 .character-header {
   display: flex;
@@ -25,6 +27,7 @@
 }
 .character-basic {
   flex: 1;
+  min-width: 0;
 }
 .character-quote {
   font-style: italic;
@@ -35,8 +38,10 @@
 .character-card table {
   width: 100%;
   table-layout: fixed;
-  display: table !important; /* 防止主题把表格变成 block 导致右侧挤压 */
-  border: none !important; /* 阻断主题自带的表格外边框 */
+  display: table !important;
+  border: none !important;
+  border-collapse: collapse;
+  margin: 0 !important;
 }
 .character-card tr,
 .character-card td,
@@ -46,8 +51,8 @@
   white-space: normal;
   vertical-align: top;
   line-height: 1.5;
-  border: none !important; /* 阻断主题自带的单元格网格线 */
-  background: transparent !important; /* 阻断主题自带的隔行变色背景 */
+  border: none !important;
+  background: transparent !important;
 }
 .character-card p {
   margin: 8px 0;
@@ -61,12 +66,64 @@
   padding-left: 12px !important;
   border-left: 4px solid currentColor;
 }
+/* ============================================================ */
+/* ================= 手机端强效修正 (@media < 700px) ============= */
+/* ============================================================ */
 @media (max-width: 700px) {
+  .character-card {
+    padding: 18px !important;
+    margin: 20px auto !important;
+  }
   .character-header {
-    flex-direction: column;
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: center !important;
   }
   .character-avatar img {
-    width: 180px;
-    height: 250px;
+    width: 180px !important;
+    height: 250px !important;
+  }
+  .character-basic {
+    width: 100% !important;
+  }
+  .character-quote {
+    text-align: center !important;
+    margin-bottom: 20px !important;
+  }
+  .character-basic table,
+  .character-basic tbody,
+  .character-basic tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .character-basic td {
+    display: block !important;
+    width: 50% !important; /* 两个 td 正好占满一行(100%)，后两个自动换行到第二行 */
+    box-sizing: border-box !important;
+    padding: 8px 8px !important;
+    border-bottom: 1px solid rgba(120,120,120,0.12) !important;
+  }
+  .character-details table,
+  .character-details thead,
+  .character-details tbody,
+  .character-details tr,
+  .character-details th,
+  .character-details td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .character-details th {
+    text-align: left !important;
+    background: rgba(120,120,120,0.08) !important;
+    padding: 8px 12px !important;
+    margin-top: 10px !important;
+  }
+  .character-details td {
+    padding: 10px 12px !important;
+    border-bottom: 1px solid rgba(120,120,120,0.12) !important;
   }
 }
