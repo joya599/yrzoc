@@ -67,28 +67,28 @@
   border-left: 4px solid currentColor;
 }
 /* ============================================================ */
-/* ================= 手机端精准重写 (@media < 700px) ============= */
+/* ================= 手机端精准修正 (@media < 700px) ============= */
 /* ============================================================ */
 @media (max-width: 700px) {
   .character-card {
-    padding: 18px !important;
-    margin: 20px auto !important;
+    padding: 16px !important;
+    margin: 15px auto !important;
   }
   .character-header {
     flex-direction: column !important;
-    gap: 20px !important;
+    gap: 15px !important;
     align-items: center !important;
   }
   .character-avatar img {
-    width: 180px !important;
-    height: 250px !important;
+    width: 160px !important;
+    height: 220px !important;
   }
   .character-basic {
     width: 100% !important;
   }
   .character-quote {
     text-align: center !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 15px !important;
   }
   .character-basic table,
   .character-basic tbody,
@@ -107,35 +107,31 @@
     border-bottom: 1px solid rgba(120,120,120,0.12) !important;
   }
   .character-details table {
-    display: table !important;
+    display: block !important;
     width: 100% !important;
-    table-layout: fixed !important;
-    border-collapse: separate !important;
-    border-spacing: 0 !important;
-    margin-top: 12px !important;
-    border: 1px solid rgba(120,120,120,0.2) !important; /* 独立小卡片外框 */
-    border-radius: 12px !important;
-    overflow: hidden !important;
-  }
-  .character-details thead {
-    display: table-header-group !important;
+    border: 1px solid rgba(120,120,120,0.2) !important; /* 外框强化 */
+    border-radius: 10px !important;
+    overflow: hidden;
   }
   .character-details tbody {
-    display: table-row-group !important;
+    display: block !important;
+    width: 100% !important;
   }
   .character-details tr {
-    display: table-row !important;
+    display: flex !important; /* 每行强制左右平分 */
+    width: 100% !important;
   }
   .character-details th,
   .character-details td {
-    display: table-cell !important;
-    width: 50% !important; /* 左右各占 50% */
+    display: block !important;
+    flex: 1 !important;
+    width: 50% !important; /* 左右各占 50% 宽度 */
     box-sizing: border-box !important;
-    padding: 10px 12px !important;
-    text-align: left !important;
-    vertical-align: top !important;
+    padding: 8px 10px !important;
+    word-break: break-word !important;
   }
   .character-details th {
+    text-align: center !important;
     background: rgba(120,120,120,0.12) !important;
     font-weight: bold !important;
     border-bottom: 1px solid rgba(120,120,120,0.2) !important;
@@ -144,7 +140,10 @@
   .character-details td:first-child {
     border-right: 1px solid rgba(120,120,120,0.2) !important;
   }
-  .character-details tr:not(:last-child) td {
-    border-bottom: 1px solid rgba(120,120,120,0.12) !important;
+  .character-details td {
+    border-bottom: 1px solid rgba(120,120,120,0.1) !important;
+  }
+  .character-details tr:last-child td {
+    border-bottom: none !important;
   }
 }
