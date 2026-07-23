@@ -1,0 +1,153 @@
+/* ================= 全局 & 电脑端布局 (完全保留原样) ================= */
+/* 自动加粗基础属性表格的单数列（第1格、第3格） */
+.character-basic table td:nth-child(odd) {
+  font-weight: bold;
+}
+.character-card {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(120,120,120,0.06);
+  border: 1px solid rgba(120,120,120,0.25);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+}
+.character-header {
+  display: flex;
+  gap: 35px;
+  align-items: flex-start;
+}
+.character-avatar img {
+  width: 230px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+.character-basic {
+  flex: 1;
+  min-width: 0;
+}
+.character-quote {
+  font-style: italic;
+  opacity: 0.7;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+.character-card table {
+  width: 100%;
+  table-layout: fixed;
+  display: table !important;
+  border: none !important;
+  border-collapse: collapse;
+  margin: 0 !important;
+}
+.character-card tr,
+.character-card td,
+.character-card th {
+  padding: 8px 20px;
+  word-break: break-word;
+  white-space: normal;
+  vertical-align: top;
+  line-height: 1.5;
+  border: none !important;
+  background: transparent !important;
+}
+.character-card p {
+  margin: 8px 0;
+}
+.character-details {
+  margin-top: 15px;
+  line-height: 1.9;
+}
+.character-details h3 {
+  margin-top: 15px !important;
+  padding-left: 12px !important;
+  border-left: 4px solid currentColor;
+}
+/* ============================================================ */
+/* ================= 手机端强效对齐修正 (@media < 700px) =========== */
+/* ============================================================ */
+@media (max-width: 700px) {
+  .character-card {
+    padding: 16px !important;
+    margin: 15px auto !important;
+  }
+  .character-header {
+    flex-direction: column !important;
+    gap: 15px !important;
+    align-items: center !important;
+  }
+  .character-avatar img {
+    width: 160px !important;
+    height: 220px !important;
+  }
+  .character-basic {
+    width: 100% !important;
+  }
+  .character-quote {
+    text-align: center !important;
+    margin-bottom: 15px !important;
+  }
+  .character-basic table,
+  .character-basic tbody,
+  .character-basic tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .character-basic td {
+    display: block !important;
+    width: 50% !important;
+    box-sizing: border-box !important;
+    padding: 8px 6px !important;
+    border-bottom: 1px solid rgba(120,120,120,0.12) !important;
+  }
+  .character-details table {
+    display: table !important;
+    width: 100% !important;
+    table-layout: fixed !important; /* 关键：强制列宽死锁，防止单元格挤压错位 */
+    border-collapse: separate !important; /* 使用独立边框防止 1px 偏移 */
+    border-spacing: 0 !important;
+    border: 1px solid rgba(120,120,120,0.2) !important; /* 整体圆角外框 */
+    border-radius: 10px !important;
+    overflow: hidden;
+  }
+  .character-details thead {
+    display: table-header-group !important;
+  }
+  .character-details tbody {
+    display: table-row-group !important;
+  }
+  .character-details tr {
+    display: table-row !important;
+  }
+  .character-details th,
+  .character-details td {
+    display: table-cell !important;
+    width: 50% !important; /* 强制左右彻底平分 50% */
+    box-sizing: border-box !important;
+    padding: 10px 12px !important;
+    word-break: break-word !important;
+    vertical-align: top !important;
+  }
+  .character-details th {
+    text-align: center !important;
+    background: rgba(120,120,120,0.12) !important;
+    font-weight: bold !important;
+    border-bottom: 1px solid rgba(120,120,120,0.2) !important;
+  }
+  .character-details th:first-child,
+  .character-details td:first-child {
+    border-right: 1px solid rgba(120,120,120,0.2) !important;
+  }
+  .character-details td {
+    border-bottom: 1px solid rgba(120,120,120,0.1) !important;
+  }
+  .character-details tr:last-child td {
+    border-bottom: none !important;
+  }
+}

@@ -1,0 +1,33 @@
+/* Profile Card */
+.profile-card {
+  margin: 3rem auto;
+  text-align: center;
+}
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 8px solid #fff;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+  transition: transform 0.3s;
+}
+.profile-avatar:hover {
+  transform: scale(1.02);
+}
+.profile-title {
+  font-size: 1.8rem; /* 更大 */
+  font-weight: 700;
+  color: #7fb77e; /* 抹茶绿色 */
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.profile-description {
+  font-size: 1rem;
+  color: #777;
+  line-height: 1.9;
+  text-align: center;
+}

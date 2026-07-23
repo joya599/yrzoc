@@ -1,0 +1,117 @@
+/* 轮播图外部整体卡片 */
+.arrow-carousel {
+  position: relative;
+  width: 100%;
+/* 初始/兜底尺寸 */
+  max-width: 450px;
+  height: 380px;
+  margin: 15px auto;
+  overflow: hidden;
+  border-radius: 14px; /* 仅外部卡片有圆角 */
+  background: #1a1a1a;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-sizing: border-box;
+/* 核心：外层卡片的宽和高同时形变，实现切换横竖框 */
+  transition: max-width 0.4s cubic-bezier(0.25, 1, 0.5, 1), height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+/* 切换为竖框时的卡片尺寸 (窄且高) */
+.arrow-carousel.portrait-carousel {
+  max-width: 360px;
+  height: 540px;
+}
+/* 切换为横框时的卡片尺寸 (宽且矮) */
+.arrow-carousel.landscape-carousel {
+  max-width: 550px;
+  height: 320px;
+}
+.arrow-carousel input[type="radio"] {
+  display: none;
+}
+.carousel-slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+/* 图片容器：剥离所有滤镜特效，仅做居中呈现 */
+.slide-item {
+  flex: 1; /* 平分内部宽度 */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #121212;
+}
+/* 图片本身：无圆角、无缩放特效，严丝合缝跟随外部卡片形变 */
+.slide-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 确保图片完整展示不被裁切 */
+  display: block;
+  border-radius: 0;
+}
+/* 左右箭头 */
+.arrows {
+  display: none;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  justify-content: space-between;
+  padding: 0 10px;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 10;
+}
+.prev,
+.next {
+  width: 35px;
+  height: 35px;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  pointer-events: auto;
+  backdrop-filter: blur(4px);
+}
+.prev:hover,
+.next:hover {
+  background: rgba(0,0,0,0.75);
+  transform: scale(1.08);
+}
+/* 底部文字 */
+.carousel-captions {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  width: 100%;
+  text-align: center;
+}
+.carousel-caption {
+  display: inline-block;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  padding: 3px 12px;
+  font-size: 12px;
+  border-radius: 16px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.5px;
+}
+/* 手机端防溢出 */
+@media screen and (max-width: 768px) {
+  .arrow-carousel,
+  .arrow-carousel.landscape-carousel,
+  .arrow-carousel.portrait-carousel {
+    max-width: 100%;
+  }
+}
