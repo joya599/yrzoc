@@ -4883,28 +4883,32 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
     border-bottom: 1px solid rgba(120,120,120,0.12) !important;
   }
   .character-details table {
-    display: block !important;
+    display: table !important;
     width: 100% !important;
-    border: 1px solid rgba(120,120,120,0.2) !important; /* 外框强化 */
+    table-layout: fixed !important; /* 关键：强制列宽死锁，防止单元格挤压错位 */
+    border-collapse: separate !important; /* 使用独立边框防止 1px 偏移 */
+    border-spacing: 0 !important;
+    border: 1px solid rgba(120,120,120,0.2) !important; /* 整体圆角外框 */
     border-radius: 10px !important;
     overflow: hidden;
   }
+  .character-details thead {
+    display: table-header-group !important;
+  }
   .character-details tbody {
-    display: block !important;
-    width: 100% !important;
+    display: table-row-group !important;
   }
   .character-details tr {
-    display: flex !important; /* 每行强制左右平分 */
-    width: 100% !important;
+    display: table-row !important;
   }
   .character-details th,
   .character-details td {
-    display: block !important;
-    flex: 1 !important;
-    width: 50% !important; /* 左右各占 50% 宽度 */
+    display: table-cell !important;
+    width: 50% !important; /* 强制左右彻底平分 50% */
     box-sizing: border-box !important;
-    padding: 8px 10px !important;
+    padding: 10px 12px !important;
     word-break: break-word !important;
+    vertical-align: top !important;
   }
   .character-details th {
     text-align: center !important;
