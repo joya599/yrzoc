@@ -4783,6 +4783,8 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
   font-weight: bold;
 }
 .character-card {
+  position: relative;
+  z-index: 0;
   max-width: 900px;
   margin: 40px auto;
   padding: 30px;
@@ -4791,6 +4793,16 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   box-sizing: border-box;
+  --theme-color: #808080 /* 兜底默认色（灰），会被行内 style 覆盖 */;
+  overflow: hidden;
+}
+.character-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--theme-color);
+  opacity: 0.07;
+  z-index: -1;
 }
 .character-header {
   display: flex;
@@ -4798,11 +4810,18 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
   align-items: flex-start;
 }
 .character-avatar img {
+  display: block;
   width: 230px;
   height: 320px;
   object-fit: cover;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+.character-name {
+  margin: 0 0 8px 0;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: var(--theme-color);
 }
 .character-basic {
   flex: 1;
@@ -4845,6 +4864,16 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
   padding-left: 12px !important;
   border-left: 4px solid currentColor;
 }
+.character-basic table tr:not(:last-child) td {
+  border-bottom: 1px solid rgba(120,120,120,0.15) !important;
+}
+.character-details table th,
+.character-details table td {
+  border: 1px solid rgba(120,120,120,0.15) !important;
+}
+.character-details table {
+  border-collapse: collapse !important;
+}
 @media (max-width: 700px) {
   .character-card {
     padding: 16px !important;
@@ -4858,6 +4887,10 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
   .character-avatar img {
     width: 160px !important;
     height: 220px !important;
+  }
+  .character-name {
+    text-align: center !important;
+    font-size: 1.4em !important;
   }
   .character-basic {
     width: 100% !important;
@@ -4880,15 +4913,13 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
     width: 50% !important;
     box-sizing: border-box !important;
     padding: 8px 6px !important;
-    border-bottom: 1px solid rgba(120,120,120,0.12) !important;
   }
   .character-details table {
     display: table !important;
     width: 100% !important;
-    table-layout: fixed !important; /* 关键：强制列宽死锁，防止单元格挤压错位 */
-    border-collapse: separate !important; /* 使用独立边框防止 1px 偏移 */
-    border-spacing: 0 !important;
-    border: 1px solid rgba(120,120,120,0.2) !important; /* 整体圆角外框 */
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    border: 1px solid rgba(120,120,120,0.2) !important;
     border-radius: 10px !important;
     overflow: hidden;
   }
@@ -4904,7 +4935,7 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
   .character-details th,
   .character-details td {
     display: table-cell !important;
-    width: 50% !important; /* 强制左右彻底平分 50% */
+    width: 50% !important;
     box-sizing: border-box !important;
     padding: 10px 12px !important;
     word-break: break-word !important;
@@ -4914,17 +4945,6 @@ body[data-mode="dark"] .timeline .timeline-icon:before {
     text-align: center !important;
     background: rgba(120,120,120,0.12) !important;
     font-weight: bold !important;
-    border-bottom: 1px solid rgba(120,120,120,0.2) !important;
-  }
-  .character-details th:first-child,
-  .character-details td:first-child {
-    border-right: 1px solid rgba(120,120,120,0.2) !important;
-  }
-  .character-details td {
-    border-bottom: 1px solid rgba(120,120,120,0.1) !important;
-  }
-  .character-details tr:last-child td {
-    border-bottom: none !important;
   }
 }
 .comment {
