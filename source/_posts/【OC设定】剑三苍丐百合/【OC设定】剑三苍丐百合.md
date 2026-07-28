@@ -20,7 +20,7 @@ status:
 
 ----
 
-{% character https://cdn.jsdelivr.net/gh/joya599/yrzoc-photo@main/%E7%9B%BE%E5%A8%98%E5%8D%95%E4%BA%BA.webp '燕从安' '「寒云带飞雪，日暮雁门关。」' %}
+{% character https://cdn.jsdelivr.net/gh/joya599/yrzoc-photo@main/%E7%9B%BE%E5%A8%98%E5%8D%95%E4%BA%BA.webp '燕从安' '「寒云带飞雪，日暮雁门关。」' '#1d2a62' %}
 
 | | | | |
 | --- | --- | --- | --- |
@@ -60,7 +60,7 @@ status:
 
 ---
 
-{% character https://cdn.jsdelivr.net/gh/joya599/yrzoc-photo@main/%E4%B8%90%E5%A7%90%E7%83%9F%E9%9B%BE.jpeg '郭天' '「浪花有意千里雪，桃花无言一队春。」' %}
+{% character https://cdn.jsdelivr.net/gh/joya599/yrzoc-photo@main/%E4%B8%90%E5%A7%90%E7%83%9F%E9%9B%BE.jpeg '郭天' '「浪花有意千里雪，桃花无言一队春。」' #ffcc33 %}
 
 | | | | |
 | --- | --- | --- | --- |
